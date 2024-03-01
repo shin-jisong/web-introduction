@@ -101,22 +101,38 @@
         </table>
     </div>
     <div>
-        <h1> 🖐️ 방명록 </h1>
+        <h1>🖐️ 방명록</h1>
         <p>
-            이름: <input type="text" name="name" value="" />
+            이름: <input id="visitor" type="text" name="name" value="" />
         </p>
         <p>
             본인 취향 영화 / 드라마 <br>
-            <input type="checkbox" name="thing" value="trumanShow" /> 트루먼쇼 
-            <input type="checkbox" name="thing" value="killMeHealMe" /> 킬미힐미
-            <input type="checkbox" name="thing" value="lawSchool" /> 로스쿨
-            <input type="checkbox" name="thing" value="elemental" /> 엘리멘탈
-            <input type="checkbox" name="thing" value="deadPoetsSociety" /> 죽은 시인의 사회    
+            <input type="checkbox" class="thing" value="trumanShow" /> 트루먼쇼 
+            <input type="checkbox" class="thing" value="killMeHealMe" /> 킬미힐미
+            <input type="checkbox" class="thing" value="lawSchool" /> 로스쿨
+            <input type="checkbox" class="thing" value="elemental" /> 엘리멘탈
+            <input type="checkbox" class="thing" value="deadPoetsSociety" /> 죽은 시인의 사회    
         </p>
         <p>
-            <button type="button">등록</button>
+            <button type="button" onclick="likeThing()">등록</button>
             <button type="reset">취소</button>
         </p>
     </div>
+
+    <script type="text/javascript">
+        function likeThing() {
+            let name = document.getElementById("visitor").value;
+            let things = document.querySelectorAll(".thing");
+            let count = 0;
+
+            things.forEach(element => {
+                if (element.checked) {
+                    count++;
+                }
+            });
+
+            alert(name + "님, 저와 " + count + "개의 취향이 같으시네요!");
+        }
+    </script>
 </body>
 </html>
